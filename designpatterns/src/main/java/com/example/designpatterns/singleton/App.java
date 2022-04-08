@@ -1,19 +1,18 @@
 package com.example.designpatterns.singleton;
 
-import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class App {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Settings settings = Settings.getInstance();
-        Settings settings1;
+    public static void main(String[] args) throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        Settings settings = Settings.INSTANCE;
 
-        try (ObjectOutput out = new ObjectOutputStream(new FileOutputStream("settings.obj"))) {
-            out.writeObject(settings);
-        }
-
-        try (ObjectInput in = new ObjectInputStream(new FileInputStream("settings.obj"))) {
-            settings1 = (Settings) in.readObject();
+        Settings settings1 = null;
+        Constructor<?>[] declaredConstructors = Settings.class.getDeclaredConstructors();
+        for (Constructor<?> constructor : declaredConstructors) {
+            constructor.setAccessible(true);
+            settings1 = (Settings) constructor.newInstance("INSTANCE");
         }
 
         System.out.println(settings == settings1);
