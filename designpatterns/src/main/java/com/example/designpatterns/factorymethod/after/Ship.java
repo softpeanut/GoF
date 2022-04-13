@@ -1,7 +1,7 @@
 package com.example.designpatterns.factorymethod.after;
 
-import com.example.designpatterns.abstractfactory.before.WhiteAnchor;
-import com.example.designpatterns.abstractfactory.before.WhiteWheel;
+import com.example.designpatterns.abstractfactory.after.Anchor;
+import com.example.designpatterns.abstractfactory.after.Wheel;
 
 public class Ship {
 
@@ -11,9 +11,9 @@ public class Ship {
 
     private String logo;
 
-    private WhiteWheel wheel;
+    private Anchor anchor;
 
-    private WhiteAnchor anchor;
+    private Wheel wheel;
 
     public String getName() {
         return name;
@@ -48,19 +48,19 @@ public class Ship {
                 '}';
     }
 
-    public WhiteAnchor getAnchor() {
+    public Anchor getAnchor() {
         return anchor;
     }
 
-    public void setAnchor(WhiteAnchor whiteAnchor) {
-        this.anchor = whiteAnchor;
+    public void setAnchor(Anchor anchor) {
+        this.anchor = anchor;
     }
 
-    public WhiteWheel getWheel() {
+    public Wheel getWheel() {
         return wheel;
     }
 
-    public void setWheel(WhiteWheel whiteWheel) {
-        this.wheel = whiteWheel;
+    public void setWheel(Wheel wheel) {
+        this.wheel = wheel;
     }
 }

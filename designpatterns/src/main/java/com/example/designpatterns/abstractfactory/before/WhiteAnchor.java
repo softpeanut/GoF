@@ -1,5 +1,7 @@
 package com.example.designpatterns.abstractfactory.before;
 
 
-public class WhiteAnchor {
+import com.example.designpatterns.abstractfactory.after.Anchor;
+
+public class WhiteAnchor implements Anchor {
 }
