@@ -1,18 +1,19 @@
 package com.example.designpatterns._01_credentialpatterns._01_singleton;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.io.*;
 
 public class App {
 
-    public static void main(String[] args) throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
-        Settings settings = Settings.INSTANCE;
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Settings5 settings = Settings5.INSTANCE;
 
-        Settings settings1 = null;
-        Constructor<?>[] declaredConstructors = Settings.class.getDeclaredConstructors();
-        for (Constructor<?> constructor : declaredConstructors) {
-            constructor.setAccessible(true);
-            settings1 = (Settings) constructor.newInstance("INSTANCE");
+        Settings5 settings1;
+        try (ObjectOutput out = new ObjectOutputStream(new FileOutputStream("settings.obj"))) {
+            out.writeObject(settings);
+        }
+
+        try (ObjectInput in = new ObjectInputStream(new FileInputStream("settings.obj"))) {
+            settings1 = (Settings5) in.readObject();
         }
 
         System.out.println(settings == settings1);
