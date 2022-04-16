@@ -1,7 +1,7 @@
 package com.example.designpatterns._01_credentialpatterns._01_singleton;
 
 /**
- * static inner 클래스 홀더
+ * static inner 클래스 홀더 (추천)
  */
 public class Settings4 {
 
