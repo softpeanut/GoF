@@ -20,9 +20,14 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'javax.mail:mail:1.4.7'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
     implementation 'org.modelmapper:modelmapper:3.0.0'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
